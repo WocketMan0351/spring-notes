@@ -14,7 +14,7 @@ public class BinarySearchTest {
 
 	@BeforeEach
 	void setUp() {
-		binarySearch = new BinarySearch<>(new MergeSort<Integer>());
+		binarySearch = new BinarySearch<>(new MergeSort<>());
 	}
 
 	@Test

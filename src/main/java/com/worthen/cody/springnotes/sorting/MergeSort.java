@@ -3,6 +3,7 @@ package com.worthen.cody.springnotes.sorting;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 /**
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  * array can be compared in O(1) time.
  */
 @Component
+@Primary
 public class MergeSort<K> implements SortAlgorithm<K> {
 
 	@Override

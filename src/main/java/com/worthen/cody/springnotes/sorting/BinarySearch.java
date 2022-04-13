@@ -13,8 +13,17 @@ import org.springframework.stereotype.Component;
 @Component
 public class BinarySearch<K> {
 
+	/**
+	 * We are telling Spring that SortAlgorithm is a dependency (loosely coupled
+	 * because we're using an interface and not a concrete implementation).
+	 */
 	private final SortAlgorithm<K> sortAlgorithm;
 
+	/**
+	 * By default, using @Qualifier("someClass") with the leading lowercase of a
+	 * class tells spring to perform a component scan and find that corresponding
+	 * Class (bean).
+	 */
 	public BinarySearch(@Qualifier("mergeSort") SortAlgorithm<K> sortAlgorithm) {
 		this.sortAlgorithm = sortAlgorithm;
 	}
