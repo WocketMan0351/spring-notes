@@ -3,6 +3,8 @@ package com.worthen.cody.springnotes.sorting;
 import java.util.Comparator;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Component;
  * time.
  */
 @Component
+@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // gives a new bean instance whenever requested
 public class BinarySearch<K> {
 
 	/**
@@ -22,7 +25,7 @@ public class BinarySearch<K> {
 	/**
 	 * By default, using @Qualifier("someClass") with the leading lowercase of a
 	 * class tells spring to perform a component scan and find that corresponding
-	 * Class (bean).
+	 * Class (bean). @Autowired is OPTIONAL for constructor injection now.
 	 */
 	public BinarySearch(@Qualifier("mergeSort") SortAlgorithm<K> sortAlgorithm) {
 		this.sortAlgorithm = sortAlgorithm;

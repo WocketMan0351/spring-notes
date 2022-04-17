@@ -37,13 +37,19 @@ public class SpringSortingApplication {
 		System.out.println("## Array sorted using " + binarySearch.getSortingAlgorithm());
 		System.out.println("## BinarySearch found " + "1 at index " + index);
 		System.out.println(Arrays.toString(numbers));
+
+		// shows that we are getting two instance of the BinarySearchBean by using the
+		// @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation on BinarySearch.
+		System.out.println(binarySearch);
+		BinarySearch<Integer> binarySearch2 = (BinarySearch<Integer>) applicationContext.getBean("binarySearch");
+		System.out.println(binarySearch2);
 	}
 
-	/**
-	 * *** BEAN SCOPE ***
-	 * 
-	 * .
-	 */
+	// BEAN SCOPE
+	// Singleton (DEFAULT) - one instance per Spring Context
+	// Prototype - new bean whenever requested
+	// Request - one bean per HTTP request
+	// Session - one bean per HTTP session
 
 	/**
 	 * *** LOGGER ***

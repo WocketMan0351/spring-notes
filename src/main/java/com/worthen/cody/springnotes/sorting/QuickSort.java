@@ -20,7 +20,7 @@ public class QuickSort<K> implements SortAlgorithm<K> {
 	/**
 	 * Sorts the subarray S[a...b], inclusive, in-place.
 	 */
-	public <K> void quickSortInPlace(K[] S, Comparator<K> comp, int a, int b) {
+	public void quickSortInPlace(K[] S, Comparator<K> comp, int a, int b) {
 		if (a >= b) {
 			return; // subarray is already sorted
 		}

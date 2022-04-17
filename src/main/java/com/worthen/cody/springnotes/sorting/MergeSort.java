@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
  * array can be compared in O(1) time.
  */
 @Component
-@Primary
+@Primary // only needed in case we weren't using @Qualifier
 public class MergeSort<K> implements SortAlgorithm<K> {
 
 	@Override
@@ -25,7 +25,7 @@ public class MergeSort<K> implements SortAlgorithm<K> {
 	/**
 	 * Merge-sort contents of array S.
 	 */
-	private <K> void mergeSort(K[] S, Comparator<K> comp) {
+	private void mergeSort(K[] S, Comparator<K> comp) {
 		int n = S.length;
 		if (n < 2) {
 			return; // an array of size < 2 is already sorted
@@ -44,7 +44,7 @@ public class MergeSort<K> implements SortAlgorithm<K> {
 	/**
 	 * Merge contents of arrays S1 and S2 into properly sized array S.
 	 */
-	private <K> void merge(K[] S1, K[] S2, K[] S, Comparator<K> comp) {
+	private void merge(K[] S1, K[] S2, K[] S, Comparator<K> comp) {
 		int i = 0, j = 0;
 		while (i + j < S.length) {
 			if (j == S2.length || (i < S1.length && comp.compare(S1[i], S2[j]) < 0)) {
