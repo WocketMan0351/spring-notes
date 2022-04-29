@@ -19,7 +19,8 @@ public class SpringSortingApplication {
 
 	public static void main(String[] args) {
 		// ApplicationContext is what maintains all the beans
-		ApplicationContext applicationContext = SpringApplication.run(SpringSortingApplication.class, args);
+		ApplicationContext applicationContext = SpringApplication
+				.run(SpringSortingApplication.class, args);
 
 		// create unsorted array
 		Integer[] numbers = new Integer[10];
@@ -32,7 +33,8 @@ public class SpringSortingApplication {
 		// binary search on unsorted array (must sort first)
 		// We can use a leading lowercase class name to tell the Application Context to
 		// find an instance (bean) of that class (ie a @Component)
-		BinarySearch<Integer> binarySearch = (BinarySearch<Integer>) applicationContext.getBean("binarySearch");
+		BinarySearch<Integer> binarySearch = (BinarySearch<Integer>) applicationContext
+				.getBean("binarySearch");
 		int index = binarySearch.binarySearch(numbers, 1, new DefaultComparator<Integer>());
 		System.out.println("## Array sorted using " + binarySearch.getSortingAlgorithm());
 		System.out.println("## BinarySearch found " + "1 at index " + index);
@@ -41,7 +43,8 @@ public class SpringSortingApplication {
 		// shows that we are getting two instance of the BinarySearchBean by using the
 		// @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) annotation on BinarySearch.
 		System.out.println(binarySearch);
-		BinarySearch<Integer> binarySearch2 = (BinarySearch<Integer>) applicationContext.getBean("binarySearch");
+		BinarySearch<Integer> binarySearch2 = (BinarySearch<Integer>) applicationContext
+				.getBean("binarySearch");
 		System.out.println(binarySearch2);
 	}
 
