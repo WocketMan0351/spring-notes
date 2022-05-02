@@ -17,7 +17,8 @@ public class SpringWithoutSpringBootApplication {
 
 	public static void main(String[] args) {
 		// How we get the application context without Spring Boot
-		// wrapping it in a try block automatically closes anything that is closeable
+		// wrapping it in a try block automatically closes anything that is
+		// AutoCloseable
 		try (AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(
 				SpringWithoutSpringBootApplication.class)) {
 			BinarySearch<Integer> binarySearch = (BinarySearch<Integer>) applicationContext

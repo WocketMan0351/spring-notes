@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Sorts an array of size n in O(n log n) time, assuming two elements of the
  * array can be compared in O(1) time.
  */
-@Component
+@Service // business logic layer
 @Primary // only needed in case we weren't using @Qualifier
 public class MergeSort<K> implements SortAlgorithm<K> {
 

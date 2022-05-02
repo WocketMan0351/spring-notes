@@ -10,14 +10,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Finds an element in a range of a sorted array, using the binary search
  * algorithm. Returns the index where the element is found. Runs in O(log n)
  * time.
  */
-@Component
+@Service // because this would probably be in the business logic layer
 @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // gives a new bean instance whenever requested
 public class BinarySearch<K> {
 

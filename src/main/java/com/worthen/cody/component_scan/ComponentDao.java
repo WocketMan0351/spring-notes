@@ -1,15 +1,16 @@
 package com.worthen.cody.component_scan;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public class ComponentDao {
 
 	private ComponentJdbcConnection jdbcConnection;
 
 	// @Autowired is OPTIONAL for constructor injection now.
-	public ComponentDao(@Qualifier("componentJdbcConnection") ComponentJdbcConnection jdbcConnection) {
+	public ComponentDao(
+			@Qualifier("componentJdbcConnection") ComponentJdbcConnection jdbcConnection) {
 		this.jdbcConnection = jdbcConnection;
 	}
 

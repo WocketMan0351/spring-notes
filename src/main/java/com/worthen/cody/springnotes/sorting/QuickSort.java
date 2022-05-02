@@ -2,14 +2,14 @@ package com.worthen.cody.springnotes.sorting;
 
 import java.util.Comparator;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Sorts an array of size n with an expected running time of O(n log n) and
  * worst-case running time of O(n^2), assuming two elements of the array can be
  * compared in O(1) time.
  */
-@Component
+@Service // business logic layer
 public class QuickSort<K> implements SortAlgorithm<K> {
 
 	@Override

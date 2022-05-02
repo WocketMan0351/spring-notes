@@ -1,9 +1,9 @@
 package com.worthen.cody.springnotes.scope;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository // because this would probably be dealing with the data layer
 public class PersonDao {
 
 	private JdbcConnection jdbcConnection;

@@ -2,13 +2,13 @@ package com.worthen.cody.springnotes.sorting;
 
 import java.util.Comparator;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * Sorts an array of size n in O(n^2) time, assuming two elements of the array
  * can be compared in O(1) time.
  */
-@Component
+@Service // business logic layer
 public class BubbleSort<K> implements SortAlgorithm<K> {
 
 	@Override
