@@ -27,6 +27,26 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- Dependency For SpringCdiApplication (bringing in CDI)-->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+		
+		<!-- Dependencies For SpringWithoutSpringBootApplication-->
+		<!-- Using Spring without Spring Boot (spring core)-->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		
+		<!-- Using Spring without Spring Boot(spring context) -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>

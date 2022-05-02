@@ -2,6 +2,11 @@ package com.worthen.cody.springnotes.sorting;
 
 import java.util.Comparator;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -13,8 +18,10 @@ import org.springframework.stereotype.Component;
  * time.
  */
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE) // gives a new bean instance whenever requested
+@Scope(ConfigurableBeanFactory.SCOPE_SINGLETON) // gives a new bean instance whenever requested
 public class BinarySearch<K> {
+
+	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	/**
 	 * We are telling Spring that SortAlgorithm is a dependency (loosely coupled
@@ -36,10 +43,12 @@ public class BinarySearch<K> {
 	 * Comparator.
 	 */
 	public int binarySearch(K[] array, K elementToSearchFor, Comparator<K> comp) {
-		return binarySearch(array, 0, array.length - 1, elementToSearchFor, new DefaultComparator<K>());
+		return binarySearch(array, 0, array.length - 1, elementToSearchFor,
+				new DefaultComparator<K>());
 	}
 
-	private int binarySearch(K[] array, int low, int high, K elementToSearchFor, Comparator<K> comp) {
+	private int binarySearch(K[] array, int low, int high, K elementToSearchFor,
+			Comparator<K> comp) {
 		sortAlgorithm.sort(array, comp);
 
 		if (low <= high) {
@@ -58,6 +67,25 @@ public class BinarySearch<K> {
 
 	public String getSortingAlgorithm() {
 		return sortAlgorithm.getClass().toString();
+	}
+
+	@PostConstruct // called as soon as the bean is created and initialized w/ dependencies
+	public void postConstruct() {
+		logger.info("** postConstruct **");
+	}
+
+	/**
+	 * called right before a bean is destroyed (used as a callback to signal a bean
+	 * is being removed by the container)
+	 * 
+	 * @PreDestory DOES NOT WORK WHEN THE SCOPE OF THE BEAN IS PROTOTYPE BECAUSE THE
+	 *             BEANS CREATED WITH THIS METHOD ARE NOT COMPLETELY MANAGED BY THE
+	 *             IOC CONTAINER. IT WORKS WHEN THE SCOPE IS SINGLETON.
+	 */
+	@PreDestroy
+	public void preDestroy() {
+		logger.info("** preDestroy **");
+		System.out.println(this.getClass().toString() + " has been destroyed");
 	}
 
 }
