@@ -17,8 +17,11 @@ Contains notes covering best practices regarding various ways to inject dependen
 Changing the annotation does not change the functionality by itself. These annotations allow us to categorize our components and apply specific logic to specific categories. For example, Spring provides a default exception translation facility only if you use the @Repository annotation on a component. 
 
 @Component - Use when in doubt of which component annotation to use. Generic component.
+
 @Repository - Use in the Data layer of an application. Encapsulating storage, retrieval, and search behavior typically from a relational database.
+
 @Service - Use in the Business layer of an applicationBusiness Service Facade.
+
 @Controller - Use in the User Interface layer of the application. Controller in MVC pattern
 
 # Spring Bean Lifecycle #
