@@ -1,4 +1,4 @@
-package com.worthen.cody.springnotes.java_context;
+package com.worthen.cody.springnotes.sorting;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -9,10 +9,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.worthen.cody.springnotes.SpringSortingApplication;
-import com.worthen.cody.springnotes.sorting.BinarySearch;
-import com.worthen.cody.springnotes.sorting.DefaultComparator;
 
 /**
+ * UNIT TEST USING JAVA CONTEXT
+ * 
  * We want to load the entire Spring context and grab the BinarySearch bean from
  * that context. (Since we're not using spring-boot-starter-test). Then,
  * 

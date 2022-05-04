@@ -28,4 +28,17 @@ public class SomeCdiBusiness {
 		this.someCdiDao = someCdiDao;
 	}
 
+	public int findMax() {
+		int[] data = someCdiDao.getData();
+
+		int max = Integer.MIN_VALUE;
+		for (int i : data) {
+			if (i > max) {
+				max = i;
+			}
+		}
+
+		return max;
+	}
+
 }
