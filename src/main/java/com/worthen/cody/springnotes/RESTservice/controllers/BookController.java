@@ -1,4 +1,4 @@
-package com.worthen.cody.springnotes.spring_boot.controllers;
+package com.worthen.cody.springnotes.RESTservice.controllers;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.worthen.cody.springnotes.spring_boot.domain.Book;
+import com.worthen.cody.springnotes.RESTservice.domain.Book;
 
 @RestController // @RequestMapping methods assume @ResponseBody semantics by default
 public class BookController {

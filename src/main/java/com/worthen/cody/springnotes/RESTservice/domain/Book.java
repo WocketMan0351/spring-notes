@@ -1,4 +1,4 @@
-package com.worthen.cody.springnotes.spring_boot.domain;
+package com.worthen.cody.springnotes.RESTservice.domain;
 
 public class Book {
 
