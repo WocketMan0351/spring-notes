@@ -19,7 +19,7 @@ public class BookController {
 
 	@GetMapping("/books") // maps a GET url
 	public List<Book> getAllBooks() {
-		return Arrays.asList(new Book(30102008, "Mastering Bitcoin", "Satoshi Nakamoto"));
+		return Arrays.asList(new Book(1283, "Mastering Bitcoin", "Andreas Antonopoulos"));
 	}
 
 }
