@@ -69,3 +69,13 @@ Implement interface BeanPostProcessor:
 -Spring has over 14 "AWARE" INTERFACES
 
 -These are used to access the Spring Framework infrastructure. These are largely used within the framework and rarely used by developers.
+
+# Maven Build Lifecycle #
+- Validate
+- Compile
+- Test
+- Package
+- Integration Test
+- Verify
+- Install
+- Deploy
